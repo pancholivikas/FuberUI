@@ -31,13 +31,9 @@ h3{
   padding-top: 80px;
 }
 
-.customer-part {
-  border-right: 2px solid black;
-}
 
-.customer-part, .driver-part {
+.customer-part {
   padding: 20px;
-  min-height: 85vh;
 }
 
 .ride-suggestion {

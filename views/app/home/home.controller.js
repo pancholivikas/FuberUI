@@ -5,53 +5,40 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$timeout', 'sortkeys', '$q', '$interval', '$state'];
+    HomeController.$inject = ['$timeout', 'searchRides', '$q', '$interval', '$state'];
     /* @ngInject */
-    function HomeController($timeout, sortkeys, $q, $interval, $state) {
+    function HomeController($timeout, searchRides, $q, $interval, $state) {
         var vm = this;
         vm.isRideBooked = false;
         vm.rideFound = true;
+        vm.pinkRides;
+        vm.normalRides;
+        vm.pinkRidesFound = false;
+        vm.normalRidesFound = false;
 
-        
         vm.customer = {
-            name:'Customer-A',
-            lat:12.0002,
-            lng:15.00598
+            name:'Vikas Pancholi',
+            lat:12.963049046363762,
+            lng:80.245224266052200,
+            mobileNumber:'9782177780'
         }
 
-
-        vm.rideSuggestions = [
-            {
-                name:'Driver-A',
-                lat:12.012,
-                lng:15.02,
-                carType:'Normal'
-            },
-            {
-                name:'Driver-A',
-                lat:12.012,
-                lng:15.02,
-                carType:'Normal'
-            },
-            {
-                name:'Driver-A',
-                lat:12.012,
-                lng:15.02,
-                carType:'pink'
-            },
-            {
-                name:'Driver-A',
-                lat:12.012,
-                lng:15.02,
-                carType:'Normal'
-            },
-            {
-                name:'Driver-A',
-                lat:12.012,
-                lng:15.02,
-                carType:'pink'
-            },
-        ]
+        vm.searchRides = function(carType) {
+            searchRides.searchRides(vm.customer, carType).then(function(data) {
+                if(carType === 'normal') {
+                    if(Array.isArray(data.data)) {
+                        vm.normalRidesFound = true;
+                        vm.normalRides = data.data;
+                    }
+                } else {
+                    if(Array.isArray(data.data)) {
+                        vm.pinkRidesFound = true;
+                        vm.pinkRides = data.data;
+                    }
+                }
+                console.log(data);
+            })
+        }
 
     }
 
