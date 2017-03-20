@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="col-xs-12 col-md-6 customer-part">
+    <div ng-if="!vm.isRideBooked">
+      
+      <ul class="nav nav-pills car-type">
+        <li class="active">Home</li>
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Menu 3</li>
+      </ul>
+
+      <div class="col-xs-12 col-md-6" ng-repeat="data in vm.rideSuggestions">
+        <div class="col-xs-12 ride-suggestion">
+          <span>Name : {{data.name}}</span>
+          <span>Latitude : {{data.lat}}</span>
+          <span>Longitude : {{data.lng}}</span>
+          <span>Car Type :  {{data.carType}}</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" ng-if="vm.isRideBooked">Book Ride</button>
+    </div>
+    <div ng-if="vm.isRideBooked">
+      <div class="driver-details">
+        <h4> Ride Detials </h4>
+        <span>Name : {{vm.driver.name}}</span>
+        <span>Latitude : {{vm.driver.lat}}</span>
+        <span>Longitude : {{vm.driver.lng}}</span>
+        <span>Car Type : {{vm.driver.carType}}</span>
+        <button class="btn btn-primary" ng-if="!vm.isRideBooked"></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-xs-12 col-md-6 driver-part">
+
+    <div class="col-xs-12" ng-if="vm.rideFound">
+      <div class="customer-details">
+        <span>{{vm.customer.name}}</span>
+        <span>{{vm.customer.lat}}</span>
+        <span>{{vm.customer.lng}}</span>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

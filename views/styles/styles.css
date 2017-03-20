@@ -1,0 +1,53 @@
+
+body {
+  background: #000;
+  background-image: url("../../images/background.jpg");
+	min-height: 100vh;
+  width: 100%;
+	font-family: "Arial", sans-serif;
+}
+
+h3{
+  color: #fff;
+}
+
+.navbar {
+  border-radius: 0px;
+  min-height: 70px;
+}
+
+.navbar-brand {
+  height: 70px;
+  color: #fff;
+  padding: 25px 15px;  
+}
+
+.navbar-brand img {
+  height: 100%;
+  width: 100%;  
+}
+
+.container {
+  padding-top: 80px;
+}
+
+.customer-part {
+  border-right: 2px solid black;
+}
+
+.customer-part, .driver-part {
+  padding: 20px;
+  min-height: 85vh;
+}
+
+.ride-suggestion {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.ride-suggestion span {
+  padding: 10px;
+  display: block;
+}
